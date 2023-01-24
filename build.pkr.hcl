@@ -19,26 +19,26 @@ source "amazon-ebs" "ubuntu-lts" {
 
 build {
   # HCP Packer settings
-  hcp_packer_registry {
-    bucket_name = "learn-packer-github-actions"
-    description = <<EOT
-This is an image for HashiCups.
-    EOT
+//   hcp_packer_registry {
+//     bucket_name = "learn-packer-github-actions"
+//     description = <<EOT
+// This is an image for HashiCups.
+//     EOT
 
-    bucket_labels = {
-      "hashicorp-learn" = "learn-packer-github-actions",
-    }
-  }
+//     bucket_labels = {
+//       "hashicorp-learn" = "learn-packer-github-actions",
+//     }
+//   }
 
   sources = [
     "source.amazon-ebs.ubuntu-lts",
   ]
 
   # systemd unit for HashiCups service
-  provisioner "file" {
-    source      = "hashicups.service"
-    destination = "/tmp/hashicups.service"
-  }
+  // provisioner "file" {
+  //   source      = "hashicups.service"
+  //   destination = "/tmp/hashicups.service"
+  // }
 
   # Set up HashiCups
   provisioner "shell" {
@@ -47,11 +47,11 @@ This is an image for HashiCups.
     ]
   }
 
-  post-processor "manifest" {
-    output     = "packer_manifest.json"
-    strip_path = true
-    custom_data = {
-      iteration_id = packer.iterationID
-    }
-  }
+  // post-processor "manifest" {
+  //   output     = "packer_manifest.json"
+  //   strip_path = true
+  //   custom_data = {
+  //     iteration_id = packer.iterationID
+  //   }
+  // }
 }

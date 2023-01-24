@@ -13,17 +13,17 @@ sudo apt-get update
 sudo apt-get install -y -qq docker-ce docker-ce-cli containerd.io docker-compose-plugin git unzip auditd
 
 # Get HashiCups config
-git clone https://github.com/hashicorp-demoapp/hashicups-setups
-cd hashicups-setups/docker-compose-deployment
-git checkout server
+# git clone https://github.com/hashicorp-demoapp/hashicups-setups
+# cd hashicups-setups/docker-compose-deployment
+# git checkout server
 
-HASHICUPS_VERSION="Development"
-sed -i 's/HashiCups/HashiCups - ${HASHICUPS_VERSION}/g' docker-compose.yaml
+# HASHICUPS_VERSION="Development"
+# sed -i 's/HashiCups/HashiCups - ${HASHICUPS_VERSION}/g' docker-compose.yaml
 
 # Use `compose create` to fetch container data without starting the container
-sudo docker compose create
+# sudo docker compose create
 
 # Configure HashiCups to start on boot using systemd
-sudo cp /tmp/hashicups.service /etc/systemd/system/hashicups.service
-sudo systemctl daemon-reload
-sudo systemctl enable hashicups
+# sudo cp /tmp/hashicups.service /etc/systemd/system/hashicups.service
+# sudo systemctl daemon-reload
+# sudo systemctl enable hashicups
