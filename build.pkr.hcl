@@ -1,5 +1,5 @@
 source "amazon-ebs" "ubuntu-lts" {
-  region = "us-west-1"
+  region = "us-east-1"
   source_ami_filter {
     filters = {
       virtualization-type = "hvm"
@@ -14,7 +14,7 @@ source "amazon-ebs" "ubuntu-lts" {
   ssh_agent_auth = false
 
   ami_name    = "hashicups_{{timestamp}}"
-  ami_regions = ["us-west-1"]
+  ami_regions = ["us-east-1"]
 }
 
 build {
