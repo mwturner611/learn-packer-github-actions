@@ -24,7 +24,7 @@ source "amazon-ebs" "ubuntu-lts" {
   }
   subnet_filter {
     filters = {
-        cidr = "10.65.34.0/24"
+        cidr = "10.65.0.0/24"
     }
   }
 }
