@@ -15,6 +15,18 @@ source "amazon-ebs" "ubuntu-lts" {
 
   ami_name    = "hashicups_{{timestamp}}"
   ami_regions = ["us-east-1"]
+
+  vpc_filter {
+    filters = { 
+      isDefault = "false"
+      cidr = "10.65.0.0/16"
+    }
+  }
+  subnet_filter {
+    filters = {
+        cidr = "10.65.34.0/24"
+    }
+  }
 }
 
 build {
