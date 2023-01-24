@@ -14,6 +14,7 @@ source "amazon-ebs" "ubuntu-lts" {
   ssh_agent_auth = false
 
   ami_name    = "hashicups_{{timestamp}}"
+  ami_ou_arns = ["arn:aws:organizations::443008238343:account/o-ksrk3e1t87/345777899508"]
   ami_regions = ["us-east-1"]
 
   vpc_filter {
